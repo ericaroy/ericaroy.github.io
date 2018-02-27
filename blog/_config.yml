@@ -1,0 +1,27 @@
+# Site settings
+title:          Erica Roy Blog - Memory Base
+description:    "A place for my ramblings about swift,p ython, AI/machine learning, and games."
+baseurl:        
+url:            "https://ericaroy.github.io"
+
+# Author
+author:
+  name:         Erica Roy
+  url:          https://ericaroy.com
+  email:        ericanico@icloud.com
+
+# Build settings
+markdown:       kramdown
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
+
+# Gems
+plugins:
+  - jekyll-paginate
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
