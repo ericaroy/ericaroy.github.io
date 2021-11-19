@@ -1,79 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Erica Roy - Python & iOS Development</title>
-    <meta name="description" content="Erica Roy. Little Rock, Ar. Coding & Gaming. Interests in artificial intelligience, game design, Python, and iOS development." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Codeply">
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/ionicons.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles.css" />
-	  
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-2440299187265216",
-    enable_page_level_ads: true
-  });
-</script>
-  </head>
-  <body>
-    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#first"> Home</a>
-            </div>
-            <div class="navbar-collapse collapse" id="bs-navbar">
-                <ul class="nav navbar-nav">
-                    <li>
-                       <a href="http://ericaroy.com/blog">Blog</a>
-                    </li>
-			<li>
-                        <a class="page-scroll" href="https://github.com/ericaroy">Repos</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#">Apps</a>
-                    </li>
-                   
-		    <li>
-			    <a href="">Contact</a>
-			</li>
+---
+layout: main
+---
+{% for post in paginator.posts %}
+<article class="post">
+  {% if post.img %}
+    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
+  {% else %}
+  {% endif %}
+  <div class="post-content">
+    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
+    <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
+    <span class="post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
+  </div>
+</article>
+{% endfor %}
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <header id="first">
-        <div class="header-content">
-            <div class="inner">
-                <h1 class="cursive">Erica Roy</h1>
-                <h4>A love for simple things, design, and life long learning.</h4>
-                <hr>
-                <div class="social-icon">
-                <a href="http://www.twitter.com/digitalnico"><i class="fa fa-twitter-square fa-3x"></i></a>
-				<a href="https://github.com/ericaroy"><i class="fa fa-github fa-3x"></i></a>
-                </div>
-            </div>
-        </div>
-
-    </header>
-
-    <!--scripts loaded here -->
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/jquery.easing.min.js"></script>
-    <script src="./js/wow.js"></script>
-    <script src="./js/scripts.js"></script>
-  </body>
-</html>
+{% include pagination.html %}
