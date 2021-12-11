@@ -5,7 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ericaroy.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: #if your site has a twitter account, enter it here
 
 # Author Settings
@@ -22,7 +22,7 @@ social-email: # add your Email address
 discus-identifier:  # add your discus identifier
 
 # Tracker
-analytics: UA-105796181-1 # Google Analytics
+analytics: # Google Analytics
 
 # Build Settings
 markdown: kramdown
